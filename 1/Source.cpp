@@ -3,6 +3,7 @@ using namespace std;
 #define N 13
 void SelectionSort(int k, int x[N]); 
 void mass(int Arr[N]);
+void bubblesort(int* l, int* r);
 
 int main() {
 	setlocale(0, "");
@@ -24,10 +25,8 @@ int main() {
  		switch (n)
 		{
 			case 1:
-				SelectionSort;
 				break;
 			case 2:
-
 				break;
 			case 3:
 				break;
@@ -52,37 +51,4 @@ void mass(int Arr[N]) {
 		cout << Arr[i] << " ";
 	}
 	cout << endl;
-}
-
-void SelectionSort(int k, int Arr[N]) {
-	int i, j, min, temp;
-	for (i = 0; i < N - 1; i++) {
-		//устанавливаем начальное значение минимального индекса
-		min = i;
-		//находим минимальный индекс элемента
-		for (j = i + 1; j < k; j++) {
-			if (Arr[j] < Arr[min])
-				min = j;
-			//меняем значения местами 
-		}
-		temp = Arr[i];
-		Arr[i] = Arr[min];
-		Arr[min] = temp;
-	}
-}
-
-void bubblesort(int* l, int* r) {
-	int sz = r - l;
-	if (sz <= 1) return;
-	bool b = true;
-	while (b) {
-		b = false;
-		for (int* i = l; i + 1 < r; i++) {
-			if (*i > * (i + 1)) {
-				swap(*i, *(i + 1));
-				b = true;
-			}
-		}
-		r--;
-	}
 }
