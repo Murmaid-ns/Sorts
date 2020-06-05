@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 #define N 13
-void SelectionSort(int k, int x[N]); 
 void mass(int Arr[N]);
-void bubblesort(int* l, int* r);
+void selectionSort(int* num, int size);
+void bubbleSort(int a[], int size);
 
 int main() {
 	setlocale(0, "");
@@ -25,8 +25,10 @@ int main() {
  		switch (n)
 		{
 			case 1:
+				selectionSort(A, N);
 				break;
 			case 2:
+				bubbleSort(A,N);
 				break;
 			case 3:
 				break;
@@ -52,3 +54,45 @@ void mass(int Arr[N]) {
 	}
 	cout << endl;
 }
+
+void selectionSort(int* num, int size)
+{
+	int min, temp; // для поиска минимального элемента и для обмена
+	cout << "Oтсoртированый массив: ";
+	for (int i = 0; i < size; i++)
+	{
+		min = i; // запоминаем индекс текущего элемента
+		// ищем минимальный элемент чтобы поместить на место i-ого
+		for (int j = i + 1; j < size; j++)  // для остальных элементов после i-ого
+		{
+			if (num[j] < num[min]) // если элемент меньше минимального,
+				min = j;       // запоминаем его индекс в min
+		}
+		temp = num[i];      // меняем местами i-ый и минимальный элементы
+		num[i] = num[min];
+		num[min] = temp;
+		cout << num[i] << " ";
+	}
+}
+
+
+void bubbleSort(int a[], int size){ //пузырьковая сортировка 
+	int i, j, counter;
+	int x;
+    counter = N;
+	cout << "Oтсoртированый массив: ";
+	for (i = 0; i < size; i++)
+	{
+		for (j = size - 1; j > i; j--)
+		{
+			if (a[j - 1] > a[j])
+			{
+				x = a[j - 1];
+				a[j - 1] = a[j];
+				a[j] = x;
+				counter++;
+			}
+		}
+		cout<< a[i] <<" ";
+	}
+	}
